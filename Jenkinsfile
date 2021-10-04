@@ -4,6 +4,7 @@ pipeline {
     stage('Say Hello') {
       steps {
         echo "Hello ${params.Name}!"
+        echo "Hello ${MY_NAME}"
         sh 'java -version'
       }
     }
