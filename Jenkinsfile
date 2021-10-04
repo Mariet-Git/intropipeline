@@ -1,14 +1,15 @@
 pipeline {
-  agent {
-    label 'jdk11.0.12'
-  }
+  agent any
   stages {
     stage('Say Hello') {
       steps {
-        echo 'Hello World!'
+        echo 'Hello World ${MY_NAME}!'
         sh 'java -version'
       }
     }
 
+  }
+  environment {
+    MY_NAME = 'Mariet'
   }
 }
