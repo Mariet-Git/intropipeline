@@ -31,10 +31,21 @@ pipeline {
     }
 
     stage('deploy:prod') {
+      input {
+        message 'Presiona OK para continuar'
+        submitter 'user1, user2'
+        parameters {
+          string(name: 'username', defaultValue: 'user', description: 'Nombre de usuario que esta dando OK')
+        }
+      }
       steps {
         sh 'echo "Paso de test: deploy:prod"'
+        echo "User: ${params.username} dijo que OK."
       }
     }
 
+  }
+  environment {
+    OUTPUT_PATH = './tmp'
   }
 }
