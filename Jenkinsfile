@@ -66,8 +66,16 @@ pipeline {
     OUTPUT_PATH = './tmp'
   }
   post {
+    aborted {
+      echo 'No termino de correr el pipeline fue forzado a terminar'
+    }
+
     always {
       echo 'El Pipeline se ejecuto exitosamente'
+    }
+
+    failure {
+      mail(to: 'pinapinamariet@gmail.com', subject: 'Ocurrio un error en el pipeline', body: 'cuerpo del correo')
     }
 
   }
