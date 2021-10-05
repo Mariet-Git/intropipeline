@@ -40,7 +40,7 @@ pipeline {
       }
       steps {
         sh 'echo "Paso de test: deploy:prod"'
-        echo "User: ${params.username} dijo que OK."
+        echo "User: ${username} dijo que OK."
       }
     }
 
