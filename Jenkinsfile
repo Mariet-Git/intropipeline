@@ -33,6 +33,7 @@ pipeline {
       steps {
         sh 'echo "Paso de test: integracion y calidad"'
         sh 'pwd'
+        sh 'chmod -xr ./miscript.sh'
         sh './miscript.sh'
       }
     }
